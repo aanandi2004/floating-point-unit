@@ -1,0 +1,204 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/aarch64-linux-gnu/ivl/v2009.vpi";
+S_0xb724ca858440 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0xb724ca851940 .scope module, "tb_fpu" "tb_fpu" 3 2;
+ .timescale 0 0;
+v0xb724ca88f690_0 .net "fpu_out", 31 0, L_0xb724ca890740;  1 drivers
+v0xb724ca88f750_0 .var "opA", 31 0;
+v0xb724ca88f880_0 .var "opB", 31 0;
+S_0xb724ca852550 .scope module, "dut" "fpu" 3 7, 4 2 0, S_0xb724ca851940;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "opA";
+    .port_info 1 /INPUT 32 "opB";
+    .port_info 2 /OUTPUT 32 "fpu_out";
+v0xb724ca88ea10_0 .net *"_ivl_1", 7 0, L_0xb724ca88f9b0;  1 drivers
+L_0xee47bf446018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0xb724ca88eaf0_0 .net/2u *"_ivl_12", 0 0, L_0xee47bf446018;  1 drivers
+v0xb724ca88ebd0_0 .net *"_ivl_3", 7 0, L_0xb724ca88fa80;  1 drivers
+v0xb724ca88ecc0_0 .net *"_ivl_7", 7 0, L_0xb724ca88fc40;  1 drivers
+v0xb724ca88eda0_0 .net *"_ivl_9", 7 0, L_0xb724ca88fd10;  1 drivers
+v0xb724ca88eed0_0 .net "big_res", 22 0, L_0xb724ca8905e0;  1 drivers
+v0xb724ca88ef90_0 .net "exp_diff", 7 0, v0xb724ca88cfd0_0;  1 drivers
+v0xb724ca88f080_0 .net "exp_large", 7 0, L_0xb724ca88fdb0;  1 drivers
+v0xb724ca88f160_0 .net "fpu_out", 31 0, L_0xb724ca890740;  alias, 1 drivers
+v0xb724ca88f240_0 .net "mux1_res", 22 0, L_0xb724ca8901e0;  1 drivers
+v0xb724ca88f300_0 .net "opA", 31 0, v0xb724ca88f750_0;  1 drivers
+v0xb724ca88f3c0_0 .net "opB", 31 0, v0xb724ca88f880_0;  1 drivers
+v0xb724ca88f480_0 .net "sel", 0 0, L_0xb724ca88fb50;  1 drivers
+v0xb724ca88f520_0 .net "shift_res", 22 0, v0xb724ca88e3c0_0;  1 drivers
+L_0xb724ca88f9b0 .part v0xb724ca88f750_0, 23, 8;
+L_0xb724ca88fa80 .part v0xb724ca88f880_0, 23, 8;
+L_0xb724ca88fb50 .cmp/gt 8, L_0xb724ca88fa80, L_0xb724ca88f9b0;
+L_0xb724ca88fc40 .part v0xb724ca88f880_0, 23, 8;
+L_0xb724ca88fd10 .part v0xb724ca88f750_0, 23, 8;
+L_0xb724ca88fdb0 .functor MUXZ 8, L_0xb724ca88fd10, L_0xb724ca88fc40, L_0xb724ca88fb50, C4<>;
+L_0xb724ca890740 .concat [ 23 8 1 0], L_0xb724ca8905e0, L_0xb724ca88fdb0, L_0xee47bf446018;
+S_0xb724ca860ba0 .scope module, "u1" "small_alu" 4 24, 5 1 0, S_0xb724ca852550;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "opA";
+    .port_info 1 /INPUT 32 "opB";
+    .port_info 2 /OUTPUT 8 "exp_diff";
+v0xb724ca860dd0_0 .net "exp1", 7 0, L_0xb724ca88ff30;  1 drivers
+v0xb724ca88cef0_0 .net "exp2", 7 0, L_0xb724ca88ffd0;  1 drivers
+v0xb724ca88cfd0_0 .var "exp_diff", 7 0;
+v0xb724ca88d090_0 .net "opA", 31 0, v0xb724ca88f750_0;  alias, 1 drivers
+v0xb724ca88d170_0 .net "opB", 31 0, v0xb724ca88f880_0;  alias, 1 drivers
+E_0xb724ca827db0 .event anyedge, v0xb724ca88cef0_0, v0xb724ca860dd0_0;
+L_0xb724ca88ff30 .part v0xb724ca88f750_0, 23, 8;
+L_0xb724ca88ffd0 .part v0xb724ca88f880_0, 23, 8;
+S_0xb724ca88d320 .scope module, "u2" "mux1" 4 31, 6 1 0, S_0xb724ca852550;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "opA";
+    .port_info 1 /INPUT 32 "opB";
+    .port_info 2 /INPUT 1 "sel";
+    .port_info 3 /OUTPUT 23 "mux1_res";
+v0xb724ca88d500_0 .net "fracA", 22 0, L_0xb724ca890070;  1 drivers
+v0xb724ca88d5e0_0 .net "fracB", 22 0, L_0xb724ca890110;  1 drivers
+v0xb724ca88d6c0_0 .net "mux1_res", 22 0, L_0xb724ca8901e0;  alias, 1 drivers
+v0xb724ca88d780_0 .net "opA", 31 0, v0xb724ca88f750_0;  alias, 1 drivers
+v0xb724ca88d840_0 .net "opB", 31 0, v0xb724ca88f880_0;  alias, 1 drivers
+v0xb724ca88d930_0 .net "sel", 0 0, L_0xb724ca88fb50;  alias, 1 drivers
+L_0xb724ca890070 .part v0xb724ca88f750_0, 0, 23;
+L_0xb724ca890110 .part v0xb724ca88f880_0, 0, 23;
+L_0xb724ca8901e0 .functor MUXZ 23, L_0xb724ca890070, L_0xb724ca890110, L_0xb724ca88fb50, C4<>;
+S_0xb724ca88da50 .scope module, "u3" "shift" 4 39, 7 2 0, S_0xb724ca852550;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "opA";
+    .port_info 1 /INPUT 32 "opB";
+    .port_info 2 /INPUT 8 "exp_diff";
+    .port_info 3 /OUTPUT 23 "shift_res";
+v0xb724ca88dcd0_0 .net "exp1", 7 0, L_0xb724ca8902d0;  1 drivers
+v0xb724ca88ddd0_0 .net "exp2", 7 0, L_0xb724ca890370;  1 drivers
+v0xb724ca88deb0_0 .net "exp_diff", 7 0, v0xb724ca88cfd0_0;  alias, 1 drivers
+v0xb724ca88dfb0_0 .net "frac_A", 22 0, L_0xb724ca890410;  1 drivers
+v0xb724ca88e070_0 .net "frac_B", 22 0, L_0xb724ca8904e0;  1 drivers
+v0xb724ca88e1a0_0 .net "opA", 31 0, v0xb724ca88f750_0;  alias, 1 drivers
+v0xb724ca88e2b0_0 .net "opB", 31 0, v0xb724ca88f880_0;  alias, 1 drivers
+v0xb724ca88e3c0_0 .var "shift_res", 22 0;
+E_0xb724ca8602e0/0 .event anyedge, v0xb724ca88dcd0_0, v0xb724ca88ddd0_0, v0xb724ca88dfb0_0, v0xb724ca88cfd0_0;
+E_0xb724ca8602e0/1 .event anyedge, v0xb724ca88e070_0;
+E_0xb724ca8602e0 .event/or E_0xb724ca8602e0/0, E_0xb724ca8602e0/1;
+L_0xb724ca8902d0 .part v0xb724ca88f750_0, 23, 8;
+L_0xb724ca890370 .part v0xb724ca88f880_0, 23, 8;
+L_0xb724ca890410 .part v0xb724ca88f750_0, 0, 23;
+L_0xb724ca8904e0 .part v0xb724ca88f880_0, 0, 23;
+S_0xb724ca88e520 .scope module, "u4" "big_alu" 4 47, 8 1 0, S_0xb724ca852550;
+ .timescale 0 0;
+    .port_info 0 /INPUT 23 "f1";
+    .port_info 1 /INPUT 23 "f2";
+    .port_info 2 /OUTPUT 23 "big_res";
+v0xb724ca88e770_0 .net "big_res", 22 0, L_0xb724ca8905e0;  alias, 1 drivers
+v0xb724ca88e870_0 .net "f1", 22 0, L_0xb724ca8901e0;  alias, 1 drivers
+v0xb724ca88e930_0 .net "f2", 22 0, v0xb724ca88e3c0_0;  alias, 1 drivers
+L_0xb724ca8905e0 .arith/sum 23, L_0xb724ca8901e0, v0xb724ca88e3c0_0;
+    .scope S_0xb724ca860ba0;
+T_0 ;
+Ewait_0 .event/or E_0xb724ca827db0, E_0x0;
+    %wait Ewait_0;
+    %load/vec4 v0xb724ca860dd0_0;
+    %load/vec4 v0xb724ca88cef0_0;
+    %cmp/u;
+    %jmp/0xz  T_0.0, 5;
+    %load/vec4 v0xb724ca88cef0_0;
+    %load/vec4 v0xb724ca860dd0_0;
+    %sub;
+    %store/vec4 v0xb724ca88cfd0_0, 0, 8;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0xb724ca860dd0_0;
+    %load/vec4 v0xb724ca88cef0_0;
+    %sub;
+    %store/vec4 v0xb724ca88cfd0_0, 0, 8;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0xb724ca88da50;
+T_1 ;
+Ewait_1 .event/or E_0xb724ca8602e0, E_0x0;
+    %wait Ewait_1;
+    %load/vec4 v0xb724ca88dcd0_0;
+    %load/vec4 v0xb724ca88ddd0_0;
+    %cmp/u;
+    %jmp/0xz  T_1.0, 5;
+    %load/vec4 v0xb724ca88dfb0_0;
+    %ix/getv 4, v0xb724ca88deb0_0;
+    %shiftr 4;
+    %store/vec4 v0xb724ca88e3c0_0, 0, 23;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0xb724ca88e070_0;
+    %ix/getv 4, v0xb724ca88deb0_0;
+    %shiftr 4;
+    %store/vec4 v0xb724ca88e3c0_0, 0, 23;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0xb724ca851940;
+T_2 ;
+    %vpi_call/w 3 14 "$dumpfile", "fpu.vcd" {0 0 0};
+    %vpi_call/w 3 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_0xb724ca851940 {0 0 0};
+    %pushi/vec4 1069547520, 0, 32;
+    %store/vec4 v0xb724ca88f750_0, 0, 32;
+    %pushi/vec4 1066401792, 0, 32;
+    %store/vec4 v0xb724ca88f880_0, 0, 32;
+    %delay 10, 0;
+    %vpi_call/w 3 21 "$display", "Case 1: fpu_out = %h", v0xb724ca88f690_0 {0 0 0};
+    %load/vec4 v0xb724ca88f690_0;
+    %cmpi/ne 1070596096, 0, 32;
+    %jmp/0xz  T_2.0, 6;
+    %vpi_call/w 3 23 "$display", "FAIL: Case 1" {0 0 0};
+    %jmp T_2.1;
+T_2.0 ;
+    %vpi_call/w 3 25 "$display", "PASS: Case 1" {0 0 0};
+T_2.1 ;
+    %pushi/vec4 1069547520, 0, 32;
+    %store/vec4 v0xb724ca88f750_0, 0, 32;
+    %pushi/vec4 1082130432, 0, 32;
+    %store/vec4 v0xb724ca88f880_0, 0, 32;
+    %delay 10, 0;
+    %vpi_call/w 3 31 "$display", "Case 2: fpu_out = %h", v0xb724ca88f690_0 {0 0 0};
+    %load/vec4 v0xb724ca88f690_0;
+    %cmpi/ne 1083179008, 0, 32;
+    %jmp/0xz  T_2.2, 6;
+    %vpi_call/w 3 33 "$display", "FAIL: Case 2" {0 0 0};
+    %jmp T_2.3;
+T_2.2 ;
+    %vpi_call/w 3 35 "$display", "PASS: Case 2" {0 0 0};
+T_2.3 ;
+    %pushi/vec4 1082130432, 0, 32;
+    %store/vec4 v0xb724ca88f750_0, 0, 32;
+    %pushi/vec4 1069547520, 0, 32;
+    %store/vec4 v0xb724ca88f880_0, 0, 32;
+    %delay 10, 0;
+    %vpi_call/w 3 41 "$display", "Case 3: fpu_out = %h", v0xb724ca88f690_0 {0 0 0};
+    %load/vec4 v0xb724ca88f690_0;
+    %cmpi/ne 1083179008, 0, 32;
+    %jmp/0xz  T_2.4, 6;
+    %vpi_call/w 3 43 "$display", "FAIL: Case 3" {0 0 0};
+    %jmp T_2.5;
+T_2.4 ;
+    %vpi_call/w 3 45 "$display", "PASS: Case 3" {0 0 0};
+T_2.5 ;
+    %vpi_call/w 3 47 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 9;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/tb_fpu.sv";
+    "rtl/fpu.sv";
+    "rtl/small_alu.sv";
+    "rtl/mux1.sv";
+    "rtl/shift.sv";
+    "rtl/big_alu.sv";

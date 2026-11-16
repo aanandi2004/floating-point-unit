@@ -1,0 +1,44 @@
+$date
+	Mon Nov 16 21:26:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_small_alu $end
+$var wire 8 ! exp_diff [7:0] $end
+$var reg 32 " opA [31:0] $end
+$var reg 32 # opB [31:0] $end
+$scope module dut $end
+$var wire 32 $ opA [31:0] $end
+$var wire 32 % opB [31:0] $end
+$var wire 8 & exp2 [7:0] $end
+$var wire 8 ' exp1 [7:0] $end
+$var reg 8 ( exp_diff [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b101 (
+b1111101 '
+b10000010 &
+b1000001000000000000000000000000 %
+b111110100000000000000000000000 $
+b1000001000000000000000000000000 #
+b111110100000000000000000000000 "
+b101 !
+$end
+#10
+b1111101 &
+b10000010 '
+b111110100000000000000000000000 #
+b111110100000000000000000000000 %
+b1000001000000000000000000000000 "
+b1000001000000000000000000000000 $
+#20

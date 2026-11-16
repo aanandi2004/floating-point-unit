@@ -1,0 +1,44 @@
+$date
+	Mon Nov 16 21:49:27 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_mux1 $end
+$var wire 23 ! mux1_res [22:0] $end
+$var reg 32 " opA [31:0] $end
+$var reg 32 # opB [31:0] $end
+$var reg 1 $ sel $end
+$scope module dut $end
+$var wire 32 % opA [31:0] $end
+$var wire 32 & opB [31:0] $end
+$var wire 1 $ sel $end
+$var wire 23 ' mux1_res [22:0] $end
+$var wire 23 ( fracB [22:0] $end
+$var wire 23 ) fracA [22:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 )
+b10000000000000000000000 (
+b0 '
+b111111110000000000000000000000 &
+b111111100000000000000000000000 %
+0$
+b111111110000000000000000000000 #
+b111111100000000000000000000000 "
+b0 !
+$end
+#10
+b10000000000000000000000 !
+b10000000000000000000000 '
+1$
+#20

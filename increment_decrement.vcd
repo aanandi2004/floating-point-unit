@@ -1,0 +1,46 @@
+$date
+	Mon Nov 16 23:24:09 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_shift_left_right $end
+$var wire 8 ! exp_out [7:0] $end
+$var reg 1 " control $end
+$var reg 8 # exp_in [7:0] $end
+$scope module dut $end
+$var wire 1 " control $end
+$var wire 8 $ exp_in [7:0] $end
+$var reg 8 % exp_out [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b10000001 %
+b10000010 $
+b10000010 #
+1"
+b10000001 !
+$end
+#10
+b10000011 !
+b10000011 %
+0"
+#20
+b1111110 !
+b1111110 %
+1"
+b1111111 #
+b1111111 $
+#30
+b10000000 !
+b10000000 %
+0"
+#40

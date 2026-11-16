@@ -1,0 +1,40 @@
+$date
+	Mon Nov 16 23:06:47 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_big_alu $end
+$var wire 23 ! big_res [22:0] $end
+$var reg 23 " f1 [22:0] $end
+$var reg 23 # f2 [22:0] $end
+$scope module dut $end
+$var wire 23 $ f1 [22:0] $end
+$var wire 23 % f2 [22:0] $end
+$var wire 23 & big_res [22:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b100101100 &
+b11001000 %
+b1100100 $
+b11001000 #
+b1100100 "
+b100101100 !
+$end
+#10
+b100101100 #
+b100101100 %
+b1100100000 !
+b1100100000 &
+b111110100 "
+b111110100 $
+#20
